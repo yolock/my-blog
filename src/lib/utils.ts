@@ -26,5 +26,14 @@ export function getReadingTimeText(content: string): string {
   const wordsPerMinute = 200;
   const words = content.trim().split(/\s+/).length;
   const minutes = Math.ceil(words / wordsPerMinute);
-  return `${minutes} min read`;
+  return `${minutes} 分钟阅读`;
+}
+
+export function createTagSlug(name: string): string {
+  if (/^[a-zA-Z0-9_-]+$/.test(name)) return name.toLowerCase();
+  let hash = 0;
+  for (let i = 0; i < name.length; i++) {
+    hash = ((hash << 5) - hash + name.charCodeAt(i)) | 0;
+  }
+  return "t" + Math.abs(hash).toString(36);
 }

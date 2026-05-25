@@ -42,7 +42,7 @@ export default function TagsPage() {
           return (
             <Link
               key={tag.name}
-              href={`/tags/${tag.name}`}
+              href={`/tags/${tag.slug}`}
               className="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-4 py-2.5 transition-all hover:border-accent hover:bg-accent/10 hover:-translate-y-0.5"
               style={{ fontSize: `${size}rem` }}
             >

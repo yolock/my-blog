@@ -6,7 +6,7 @@ import { remark } from "remark";
 import { visit } from "unist-util-visit";
 import { toString } from "mdast-util-to-string";
 import type { Post, PostSummary, PostFrontmatter, Heading, Tag } from "@/types/blog";
-import { getReadingTimeText } from "./utils";
+import { getReadingTimeText, createTagSlug } from "./utils";
 import { CONTENT_DIR } from "./constants";
 
 const postsCache = new Map<string, Post>();
@@ -123,9 +123,19 @@ export function getPostBySlug(slug: string): Post | null {
 
 export function getPostsByTag(tag: string): PostSummary[] {
   const all = getAllPosts();
+  const tagName = resolveTagName(tag);
+  if (!tagName) return [];
   return all.filter((p) =>
-    p.frontmatter.tags.some((t) => t.toLowerCase() === tag.toLowerCase())
+    p.frontmatter.tags.some((t) => t.toLowerCase() === tagName.toLowerCase())
   );
+}
+
+export function resolveTagName(slugOrName: string): string | null {
+  const tags = getAllTags();
+  const tag = tags.find(
+    (t) => t.slug === slugOrName || t.name === slugOrName
+  );
+  return tag?.name ?? null;
 }
 
 export function getRelatedPosts(
@@ -145,17 +155,26 @@ export function getRelatedPosts(
 
 export function getAllTags(): Tag[] {
   const all = getAllPosts();
-  const tagMap = new Map<string, number>();
+  const tagMap = new Map<string, { count: number; original: string }>();
 
   for (const post of all) {
     for (const tag of post.frontmatter.tags) {
-      const lower = tag.toLowerCase();
-      tagMap.set(lower, (tagMap.get(lower) || 0) + 1);
+      const key = tag.toLowerCase();
+      const existing = tagMap.get(key);
+      if (existing) {
+        existing.count++;
+      } else {
+        tagMap.set(key, { count: 1, original: tag });
+      }
     }
   }
 
   return Array.from(tagMap.entries())
-    .map(([name, count]) => ({ name, count }))
+    .map(([, { count, original }]) => ({
+      name: original,
+      slug: createTagSlug(original),
+      count,
+    }))
     .sort((a, b) => b.count - a.count);
 }
 
