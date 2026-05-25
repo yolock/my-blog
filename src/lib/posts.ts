@@ -6,7 +6,7 @@ import { remark } from "remark";
 import { visit } from "unist-util-visit";
 import { toString } from "mdast-util-to-string";
 import type { Post, PostSummary, PostFrontmatter, Heading, Tag } from "@/types/blog";
-import { getReadingTimeText, createTagSlug } from "./utils";
+import { getReadingTimeText, createTagSlug, slugifyHeading } from "./utils";
 import { CONTENT_DIR } from "./constants";
 
 const postsCache = new Map<string, Post>();
@@ -27,11 +27,7 @@ function extractHeadings(content: string): Heading[] {
     visit(tree, "heading", (node: any) => {
       if (node.depth <= 3) {
         const text = toString(node);
-        const id = text
-          .toLowerCase()
-          .replace(/[^\w\s-]/g, "")
-          .replace(/[\s_]+/g, "-")
-          .replace(/^-+|-+$/g, "");
+        const id = slugifyHeading(text);
         headings.push({
           level: node.depth as 1 | 2 | 3,
           text,

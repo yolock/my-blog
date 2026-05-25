@@ -1,15 +1,25 @@
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import type { Components } from "react-markdown";
+import { slugifyHeading } from "@/lib/utils";
 
 interface MarkdownBodyProps {
   content: string;
 }
 
+function extractText(children: React.ReactNode): string {
+  if (typeof children === "string") return children;
+  if (Array.isArray(children)) return children.map(extractText).join("");
+  if (children && typeof children === "object" && "props" in children) {
+    return extractText((children as any).props.children);
+  }
+  return "";
+}
+
 const components: Components = {
   h1: ({ children, id, ...props }) => (
     <h1
-      id={id}
+      id={id || slugifyHeading(extractText(children))}
       className="mt-10 mb-6 text-3xl font-bold tracking-tight text-foreground scroll-mt-20"
       {...props}
     >
@@ -18,7 +28,7 @@ const components: Components = {
   ),
   h2: ({ children, id, ...props }) => (
     <h2
-      id={id}
+      id={id || slugifyHeading(extractText(children))}
       className="mt-10 mb-4 text-2xl font-semibold tracking-tight text-foreground scroll-mt-20"
       {...props}
     >
@@ -27,7 +37,7 @@ const components: Components = {
   ),
   h3: ({ children, id, ...props }) => (
     <h3
-      id={id}
+      id={id || slugifyHeading(extractText(children))}
       className="mt-8 mb-3 text-xl font-semibold text-foreground scroll-mt-20"
       {...props}
     >

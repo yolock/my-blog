@@ -29,6 +29,15 @@ export function getReadingTimeText(content: string): string {
   return `${minutes} 分钟阅读`;
 }
 
+export function slugifyHeading(text: string): string {
+  return text
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/[<>"'&]/g, "")
+    .replace(/-+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 export function createTagSlug(name: string): string {
   if (/^[a-zA-Z0-9_-]+$/.test(name)) return name.toLowerCase();
   let hash = 0;
