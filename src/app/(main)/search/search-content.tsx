@@ -6,7 +6,6 @@ import Fuse from "fuse.js";
 import { useDebounce } from "@/hooks/use-debounce";
 import { SearchInput } from "@/components/ui/search-input";
 import { PostCard } from "@/components/blog/post-card";
-import type { PostSummary, PostFrontmatter } from "@/types/blog";
 
 interface SerializedPost {
   slug: string;
@@ -44,7 +43,7 @@ export function SearchContent({ posts }: SearchContentProps) {
       ],
       threshold: 0.4,
       includeScore: true,
-      minMatchCharLength: 2,
+      minMatchCharLength: 1,
     });
   }, [posts]);
 
@@ -60,12 +59,12 @@ export function SearchContent({ posts }: SearchContentProps) {
     <div className="mx-auto max-w-3xl px-4 sm:px-6 py-16 sm:py-20">
       <div className="mb-10">
         <h1 className="mb-6 text-3xl font-bold tracking-tight text-foreground">
-          Search
+          搜索
         </h1>
         <SearchInput value={query} onChange={setQuery} />
         {debouncedQuery && (
           <p className="mt-3 text-sm text-muted-foreground">
-            {results.length} {results.length === 1 ? "result" : "results"} for &quot;{debouncedQuery}&quot;
+            找到 {results.length} 篇关于 &quot;{debouncedQuery}&quot; 的文章
           </p>
         )}
       </div>
@@ -91,10 +90,10 @@ export function SearchContent({ posts }: SearchContentProps) {
         </div>
       ) : (
         <div className="py-16 text-center">
-          <p className="text-muted-foreground">No posts found.</p>
+          <p className="text-muted-foreground">未找到相关文章。</p>
           {debouncedQuery && (
             <p className="mt-2 text-sm text-muted-foreground">
-              Try a different search term.
+              试试其他关键词吧。
             </p>
           )}
         </div>

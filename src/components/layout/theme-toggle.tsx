@@ -18,7 +18,7 @@ export function ThemeToggle() {
     <button
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
       className="flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-card text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-      aria-label={`Switch to ${resolvedTheme === "dark" ? "light" : "dark"} mode`}
+      aria-label={`切换到${resolvedTheme === "dark" ? "浅色" : "深色"}模式`}
     >
       {resolvedTheme === "dark" ? (
         <Sun className="h-4 w-4" />

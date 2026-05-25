@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { AUTHOR_NAME, AUTHOR_BIO } from "@/lib/constants";
-import { Mail, Globe } from "lucide-react";
+import { Mail } from "lucide-react";
 import { GithubIcon, TwitterIcon, LinkedinIcon } from "@/components/ui/social-icons";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "About",
-  description: `About ${AUTHOR_NAME}.`,
+  title: "关于",
+  description: `关于 ${AUTHOR_NAME}。`,
 };
 
 export default function AboutPage() {
@@ -14,33 +14,28 @@ export default function AboutPage() {
     <div className="mx-auto max-w-3xl px-4 sm:px-6 py-16 sm:py-20">
       <div className="mb-12">
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-foreground">
-          About Me
+          关于我
         </h1>
-        <div className="prose">
+        <div className="space-y-5">
           <p className="text-lg leading-relaxed text-muted-foreground">
             {AUTHOR_BIO}
           </p>
           <p className="text-muted-foreground">
-            Welcome to my blog! Here I write about web development, software
-            architecture, and the craft of building great products. I believe in
-            clean code, thoughtful design, and continuous learning.
+            欢迎来到我的博客！在这里我会分享关于 Web 开发、软件架构以及构建优秀产品的思考。我相信简洁的代码、贴心的设计和持续学习的力量。
           </p>
           <p className="text-muted-foreground">
-            When I&apos;m not coding, you can find me reading, hiking, or
-            experimenting with new technologies. I&apos;m passionate about
-            open-source software and enjoy contributing to the community.
+            不写代码的时候，我喜欢阅读、徒步、尝试新技术。我热爱开源软件，享受为社区做贡献。
           </p>
-          <h2>What You&apos;ll Find Here</h2>
-          <ul>
-            <li>In-depth tutorials on modern web technologies</li>
-            <li>Thoughts on software design and architecture</li>
-            <li>Tips and tricks from real-world projects</li>
-            <li>Reflections on the craft of programming</li>
+          <h2 className="text-xl font-semibold text-foreground mt-10">关于本站</h2>
+          <ul className="ml-6 list-disc space-y-2 text-muted-foreground">
+            <li>现代 Web 技术的深度教程</li>
+            <li>软件设计和架构的思考</li>
+            <li>实际项目中的技巧与经验</li>
+            <li>编程技艺的反思与感悟</li>
           </ul>
-          <h2>Get in Touch</h2>
-          <p>
-            I&apos;m always happy to connect with fellow developers. Feel free
-            to reach out through any of the channels below.
+          <h2 className="text-xl font-semibold text-foreground mt-10">联系方式</h2>
+          <p className="text-muted-foreground">
+            很高兴与各位开发者交流。欢迎通过以下渠道联系我。
           </p>
         </div>
       </div>
@@ -78,7 +73,7 @@ export default function AboutPage() {
           className="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-4 py-2.5 text-sm font-medium text-foreground transition-all hover:bg-muted"
         >
           <Mail className="h-4 w-4" />
-          Email
+          邮箱
         </a>
       </div>
     </div>

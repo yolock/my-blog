@@ -55,7 +55,7 @@ export function Pagination({
         aria-disabled={currentPage <= 1}
         tabIndex={currentPage <= 1 ? -1 : 0}
       >
-        Prev
+        上一页
       </Link>
 
       {pages.map((page, idx) =>
@@ -98,7 +98,7 @@ export function Pagination({
         aria-disabled={currentPage >= totalPages}
         tabIndex={currentPage >= totalPages ? -1 : 0}
       >
-        Next
+        下一页
       </Link>
     </nav>
   );

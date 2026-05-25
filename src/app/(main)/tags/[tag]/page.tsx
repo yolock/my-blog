@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { tag } = await params;
   return {
     title: `#${tag}`,
-    description: `Posts tagged with "${tag}".`,
+    description: `标签 "${tag}" 下的所有文章。`,
   };
 }
 
@@ -33,7 +33,7 @@ export default async function TagPage({ params }: Props) {
           <span className="text-accent">#</span> {tag}
         </h1>
         <p className="mt-2 text-muted-foreground">
-          {posts.length} {posts.length === 1 ? "post" : "posts"} tagged
+          共 {posts.length} 篇文章
         </p>
       </div>
       <PostGrid posts={posts} />

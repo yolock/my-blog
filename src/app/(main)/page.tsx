@@ -17,7 +17,7 @@ export default function HomePage() {
       <section className="border-b border-border bg-muted/30">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 py-20 sm:py-28">
           <h1 className="mb-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-            Hi, I&apos;m {AUTHOR_NAME}
+            你好，我是 {AUTHOR_NAME}
           </h1>
           <p className="mb-8 max-w-xl text-lg leading-relaxed text-muted-foreground">
             {AUTHOR_BIO}
@@ -27,14 +27,14 @@ export default function HomePage() {
               href="/blog"
               className="inline-flex items-center gap-2 rounded-xl bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground transition-all hover:bg-accent/90 active:scale-[0.97]"
             >
-              Read the blog
+              阅读文章
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               href="/about"
               className="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-5 py-2.5 text-sm font-medium text-foreground transition-all hover:bg-muted"
             >
-              About me
+              关于我
             </Link>
           </div>
         </div>
@@ -46,10 +46,10 @@ export default function HomePage() {
           <div className="mb-8 flex items-end justify-between">
             <div>
               <h2 className="text-2xl font-bold tracking-tight text-foreground">
-                Featured
+                精选文章
               </h2>
               <p className="mt-1 text-sm text-muted-foreground">
-                Hand-picked posts worth your time
+                值得一读的好文章
               </p>
             </div>
           </div>
@@ -62,10 +62,10 @@ export default function HomePage() {
         <div className="mb-8 flex items-end justify-between">
           <div>
             <h2 className="text-2xl font-bold tracking-tight text-foreground">
-              Latest
+              最新文章
             </h2>
             <p className="mt-1 text-sm text-muted-foreground">
-              What I&apos;ve been writing lately
+              我的近期分享
             </p>
           </div>
           {allPosts.length > 6 && (
@@ -73,7 +73,7 @@ export default function HomePage() {
               href="/blog"
               className="text-sm font-medium text-accent hover:underline"
             >
-              View all posts &rarr;
+              查看全部 &rarr;
             </Link>
           )}
         </div>
@@ -81,7 +81,7 @@ export default function HomePage() {
         {allPosts.length === 0 && (
           <div className="py-20 text-center">
             <p className="text-muted-foreground">
-              No posts yet. Check back soon!
+              暂无文章，敬请期待！
             </p>
           </div>
         )}

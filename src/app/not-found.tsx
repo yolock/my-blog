@@ -13,18 +13,17 @@ export default function NotFound() {
             404
           </p>
           <h1 className="mb-4 text-2xl font-bold tracking-tight text-foreground">
-            Page not found
+            页面未找到
           </h1>
           <p className="mb-8 text-muted-foreground">
-            The page you&apos;re looking for doesn&apos;t exist or has been
-            moved.
+            你访问的页面不存在或已被移除。
           </p>
           <Link
             href="/"
             className="inline-flex items-center gap-2 rounded-xl bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground transition-all hover:bg-accent/90"
           >
             <ArrowLeft className="h-4 w-4" />
-            Back to Home
+            返回首页
           </Link>
         </div>
       </main>

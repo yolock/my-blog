@@ -1,9 +1,9 @@
-export const SITE_NAME = "My Blog";
-export const SITE_DESCRIPTION = "Thoughts on software, design, and life.";
+export const SITE_NAME = "yolo";
+export const SITE_DESCRIPTION = "关于代码、设计和生活的思考。";
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://myblog-cyan-one.vercel.app";
-export const AUTHOR_NAME = "Alex";
+export const AUTHOR_NAME = "yolo";
 export const AUTHOR_EMAIL = "hello@myblog.com";
-export const AUTHOR_BIO = "Full-stack developer. I write about web technologies, system design, and building great products.";
+export const AUTHOR_BIO = "全栈开发者。写写技术文章，聊聊系统设计，分享构建产品的思考。";
 
 export const SOCIAL_LINKS = {
   github: "https://github.com",

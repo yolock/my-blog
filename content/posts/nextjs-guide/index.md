@@ -1,42 +1,40 @@
 ---
-title: "Building a Modern Blog with Next.js 15"
+title: "用 Next.js 16 构建现代博客"
 date: "2026-05-20"
-summary: "A comprehensive guide to building a performant, feature-rich blog using Next.js 15 App Router, MDX, and Tailwind CSS."
-tags: ["nextjs", "react", "tutorial", "web-development"]
+summary: "一份全面指南，教你用 Next.js 16 App Router、Markdown 和 Tailwind CSS 构建高性能、功能丰富的博客。"
+tags: ["nextjs", "react", "教程", "web-development"]
 published: true
 featured: true
 ---
 
-## Introduction
+## 前言
 
-Next.js has become one of the most popular frameworks for building React applications. With the release of version 15, the App Router has matured into a powerful tool for building content-driven websites. In this post, I'll walk through the architecture decisions behind building a modern blog.
+Next.js 已经成为构建 React 应用最受欢迎的框架之一。随着版本 16 的发布，App Router 已经成熟为构建内容驱动型网站的强大工具。在这篇文章中，我会详细介绍构建现代博客的架构决策。
 
-## Why Next.js for a Blog?
+## 为什么用 Next.js 做博客？
 
-You might wonder — why use a React framework for a blog when static site generators exist? Here are my reasons:
+你可能会想——当有那么多静态站点生成器时，为什么还要用 React 框架做博客？以下是我的理由：
 
-1. **App Router** — File-based routing makes organizing pages intuitive
-2. **React Server Components** — Render content on the server for better performance
-3. **MDX Support** — Write content in Markdown with embedded React components
-4. **Static Generation** — Pre-render all pages at build time for lightning-fast loads
-5. **Ecosystem** — Access to the entire React ecosystem
+1. **App Router** — 基于文件的路由让页面组织非常直观
+2. **React Server Components** — 在服务端渲染内容，性能更好
+3. **Markdown 支持** — 用普通 Markdown 写内容
+4. **静态生成** — 构建时预渲染所有页面，加载飞快
+5. **生态系统** — 可以使用整个 React 生态系统
 
-## Key Architecture Decisions
+## 核心架构决策
 
-### Content Management with MDX
+### 用 Markdown 管理内容
 
-I chose MDX over a CMS because:
+我选择了 Markdown 文件而不是 CMS，因为：
 
-```tsx
-// You can embed React components directly in your markdown
-<Callout type="info">
-  This is rendered as a React component inside your MDX content!
-</Callout>
-```
+- 文章和代码在一起，版本管理方便
+- 不需要数据库
+- 写作体验流畅，任何编辑器都能写
+- 构建时直接读取文件系统，零运行时开销
 
-### Data Layer Design
+### 数据层设计
 
-The core data layer is a simple module that reads from the file system:
+核心数据层是一个简单的模块，直接读取文件系统：
 
 ```typescript
 function getAllPosts(): Post[] {
@@ -50,17 +48,17 @@ function getAllPosts(): Post[] {
 }
 ```
 
-### Search Implementation
+### 搜索实现
 
-For search, I used Fuse.js for client-side fuzzy matching. This works great for blogs with up to a few hundred posts. The search index is built on the server and serialized to the client.
+搜索使用了 Fuse.js 做客户端模糊匹配。对于几百篇文章以内的博客来说，这个方案非常合适。搜索索引在服务端构建，序列化后传给客户端。
 
-## Performance Considerations
+## 性能优化
 
-- **Static Generation**: All blog pages are pre-rendered at build time
-- **Image Optimization**: Next.js Image component handles responsive images
-- **Font Loading**: System font stack with Geist for clean typography
-- **Minimal JavaScript**: Only interactive components ship client-side JS
+- **静态生成**：所有博客页面在构建时预渲染
+- **字体优化**：使用 next/font 自动优化字体加载
+- **最小化 JavaScript**：只有交互组件才会包含客户端 JS
+- **图片懒加载**：所有图片默认 lazy loading
 
-## Conclusion
+## 总结
 
-Building a blog with Next.js 15 is a great developer experience. The combination of static generation, MDX content, and modern React patterns creates a fast, maintainable, and enjoyable blogging platform.
+用 Next.js 16 构建博客是极好的开发体验。静态生成、Markdown 内容和现代 React 模式的结合，创造了一个快速、可维护、令人愉悦的博客平台。

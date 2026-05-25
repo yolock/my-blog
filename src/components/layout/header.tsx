@@ -8,10 +8,10 @@ import { ThemeToggle } from "./theme-toggle";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
-  { href: "/", label: "Home" },
-  { href: "/blog", label: "Blog" },
-  { href: "/tags", label: "Tags" },
-  { href: "/about", label: "About" },
+  { href: "/", label: "首页" },
+  { href: "/blog", label: "文章" },
+  { href: "/tags", label: "标签" },
+  { href: "/about", label: "关于" },
 ];
 
 export function Header() {
@@ -25,7 +25,7 @@ export function Header() {
           href="/"
           className="text-lg font-bold tracking-tight text-foreground hover:text-accent transition-colors"
         >
-          My Blog
+          yolo
         </Link>
 
         <nav className="hidden md:flex items-center gap-1">
@@ -51,7 +51,7 @@ export function Header() {
             className="hidden sm:flex h-9 items-center gap-2 rounded-lg border border-border bg-card px-3 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
           >
             <SearchIcon />
-            <span className="text-xs">Search...</span>
+            <span className="text-xs">搜索...</span>
             <kbd className="hidden lg:inline-flex h-5 items-center gap-0.5 rounded border border-border bg-muted px-1.5 text-[10px] font-mono text-muted-foreground">
               ⌘K
             </kbd>
@@ -60,7 +60,7 @@ export function Header() {
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="flex md:hidden h-9 w-9 items-center justify-center rounded-lg border border-border bg-card text-muted-foreground hover:bg-muted"
-            aria-label="Toggle menu"
+            aria-label="切换菜单"
           >
             {mobileOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>
@@ -90,7 +90,7 @@ export function Header() {
             className="mt-1 flex sm:hidden items-center gap-2 px-3 py-2.5 rounded-lg text-sm text-muted-foreground hover:text-foreground"
           >
             <SearchIcon />
-            Search
+            搜索
           </Link>
         </nav>
       )}

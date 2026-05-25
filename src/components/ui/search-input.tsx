@@ -12,7 +12,7 @@ interface SearchInputProps {
 export function SearchInput({
   value,
   onChange,
-  placeholder = "Search posts...",
+  placeholder = "搜索文章...",
 }: SearchInputProps) {
   const inputRef = useRef<HTMLInputElement>(null);
 

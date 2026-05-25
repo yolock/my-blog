@@ -1,15 +1,15 @@
 ---
-title: "5 TypeScript Tips Every Developer Should Know"
+title: "每个开发者都应该知道的 5 个 TypeScript 技巧"
 date: "2026-05-15"
-summary: "Practical TypeScript patterns and tips that will make your code safer, cleaner, and more maintainable."
+summary: "实用的 TypeScript 模式和技巧，让你的代码更安全、更清晰、更易于维护。"
 tags: ["typescript", "javascript", "best-practices"]
 published: true
 featured: false
 ---
 
-## 1. Use Discriminated Unions
+## 1. 使用可辨识联合类型
 
-Discriminated unions are one of TypeScript's most powerful features for modeling state:
+可辨识联合类型是 TypeScript 建模状态最强大的特性之一：
 
 ```typescript
 type State =
@@ -21,26 +21,26 @@ type State =
 function handleState(state: State) {
   switch (state.status) {
     case "idle":
-      // state is { status: "idle" }
+      // state 的类型被收窄为 { status: "idle" }
       break;
     case "loading":
-      // state is { status: "loading" }
+      // state 的类型被收窄为 { status: "loading" }
       break;
     case "success":
-      // state is { status: "success"; data: string[] }
+      // state 的类型被收窄为 { status: "success"; data: string[] }
       console.log(state.data);
       break;
     case "error":
-      // state is { status: "error"; error: Error }
+      // state 的类型被收窄为 { status: "error"; error: Error }
       console.error(state.error.message);
       break;
   }
 }
 ```
 
-## 2. The `satisfies` Operator
+## 2. `satisfies` 操作符
 
-The `satisfies` operator (introduced in TypeScript 4.9) lets you validate types while preserving the narrowest possible inference:
+`satisfies` 操作符（TypeScript 4.9 引入）可以在验证类型的同时保留最精确的类型推导：
 
 ```typescript
 const palette = {
@@ -49,13 +49,13 @@ const palette = {
   blue: [0, 0, 255],
 } satisfies Record<string, string | number[]>;
 
-// palette.green is still inferred as string, not string | number[]
-palette.green.toUpperCase(); // OK!
+// palette.green 仍然推导为 string，而非 string | number[]
+palette.green.toUpperCase(); // 没问题！
 ```
 
-## 3. Template Literal Types
+## 3. 模板字面量类型
 
-Template literal types let you create precise string patterns:
+模板字面量类型可以创建精确的字符串模式：
 
 ```typescript
 type EventName = `on${Capitalize<string>}`;
@@ -65,29 +65,29 @@ type Padding = `p-${number}`;
 // "p-0" | "p-1" | "p-2" | ...
 ```
 
-## 4. The `noUncheckedIndexedAccess` Flag
+## 4. `noUncheckedIndexedAccess` 编译选项
 
-Enable this compiler flag to make array and object access safer:
+启用这个选项可以让数组和对象访问更安全：
 
 ```typescript
-// With noUncheckedIndexedAccess: true
+// noUncheckedIndexedAccess: true 时
 const arr = [1, 2, 3];
-const first = arr[0]; // type is number | undefined
-const tenth = arr[9]; // type is number | undefined — correctly!
+const first = arr[0]; // 类型为 number | undefined
+const tenth = arr[9]; // 类型为 number | undefined — 正确！
 ```
 
-## 5. Const Assertions for Literal Types
+## 5. const 断言
 
-Use `as const` to get the narrowest possible type:
+使用 `as const` 获取最精确的类型：
 
 ```typescript
 const colors = ["red", "green", "blue"] as const;
-// type is readonly ["red", "green", "blue"]
+// 类型为 readonly ["red", "green", "blue"]
 
 type Color = (typeof colors)[number];
 // "red" | "green" | "blue"
 ```
 
-## Wrapping Up
+## 总结
 
-TypeScript's type system is incredibly expressive. These five patterns will help you write safer, more self-documenting code. The key is to let the type system work for you — model your data accurately, and TypeScript will catch errors before they reach production.
+TypeScript 的类型系统表达力极强。以上五个模式能帮助你写出更安全、更自解释的代码。关键是让类型系统为你工作——准确建模数据，TypeScript 就能在生产环境之前帮你捕获错误。

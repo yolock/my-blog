@@ -16,7 +16,7 @@ export function TableOfContents({ headings }: TableOfContentsProps) {
   return (
     <nav className="space-y-1" aria-label="Table of contents">
       <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-        On this page
+        目录
       </p>
       <ul className="space-y-0.5 border-l border-border">
         {headings.map((heading) => (

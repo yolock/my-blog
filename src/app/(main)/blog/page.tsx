@@ -5,8 +5,8 @@ import { PostGrid } from "@/components/blog/post-grid";
 import { Pagination } from "@/components/blog/pagination";
 
 export const metadata: Metadata = {
-  title: "Blog",
-  description: "All blog posts.",
+  title: "文章",
+  description: "所有文章列表。",
 };
 
 export const dynamic = "force-static";
@@ -21,17 +21,16 @@ export default async function BlogPage({
   const { posts, total } = getPaginatedPosts(page, POSTS_PER_PAGE);
   const totalPages = Math.max(1, Math.ceil(total / POSTS_PER_PAGE));
 
-  // Clamp page
   const safePage = Math.min(page, totalPages);
 
   return (
     <div className="mx-auto max-w-5xl px-4 sm:px-6 py-16 sm:py-20">
       <div className="mb-10">
         <h1 className="text-3xl font-bold tracking-tight text-foreground">
-          Blog
+          文章
         </h1>
         <p className="mt-2 text-muted-foreground">
-          {total} {total === 1 ? "post" : "posts"} published
+          共 {total} 篇文章
         </p>
       </div>
 
@@ -45,7 +44,7 @@ export default async function BlogPage({
         </>
       ) : (
         <div className="py-20 text-center">
-          <p className="text-muted-foreground">No posts yet.</p>
+          <p className="text-muted-foreground">暂无文章。</p>
         </div>
       )}
     </div>

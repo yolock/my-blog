@@ -21,7 +21,7 @@ export default function SearchPage() {
       fallback={
         <div className="mx-auto max-w-3xl px-4 sm:px-6 py-16 sm:py-20">
           <h1 className="mb-6 text-3xl font-bold tracking-tight text-foreground">
-            Search
+            搜索
           </h1>
           <div className="h-12 rounded-2xl bg-muted animate-pulse" />
         </div>

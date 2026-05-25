@@ -1,38 +1,38 @@
 ---
-title: "Hello World — Welcome to My Blog"
+title: "你好，世界 — 欢迎来到我的博客"
 date: "2026-05-25"
-summary: "The first post on my new blog. Here's what to expect and why I started writing."
-tags: ["personal", "writing"]
+summary: "我的第一篇博客文章。聊聊为什么要开始写作，以及在这个博客上你会看到什么。"
+tags: ["生活", "写作"]
 published: true
 featured: true
 ---
 
-## Why I Started This Blog
+## 为什么开始写博客
 
-After years of reading other people's blogs and learning from the community, I decided it was time to give back. This blog is my space to share what I've learned about software development, design, and the craft of building digital products.
+看了很多年别人的博客，从社区中学到了无数东西，现在终于决定回馈社区。这个博客是我分享软件开发、设计和产品构建心得的空间。
 
-## What to Expect
+## 你会在这里看到什么
 
-I'll be writing about:
+我会写这些方面的内容：
 
-- **Web Development** — React, Next.js, TypeScript, and modern frontend architecture
-- **Software Design** — Patterns, principles, and system architecture
-- **Developer Experience** — Tooling, workflows, and productivity
-- **Lessons Learned** — Real-world experiences from building products
+- **Web 开发** — React、Next.js、TypeScript 以及现代前端架构
+- **软件设计** — 设计模式、系统架构和工程原则
+- **开发体验** — 工具链、工作流程和效率提升
+- **经验教训** — 来自实际项目的真实经验
 
-## The Tech Behind This Blog
+## 这个博客用了什么技术
 
-This blog itself is built with some of my favorite tools:
+这个博客本身就是用我喜欢的工具构建的：
 
-- **Next.js 15** with the App Router for static generation
-- **TypeScript** for type safety
-- **Tailwind CSS** for styling
-- **MDX** for writing posts with rich content
+- **Next.js 16** — App Router 静态生成
+- **TypeScript** — 类型安全
+- **Tailwind CSS** — 实用优先的样式方案
+- **Markdown** — 用 `.md` 文件写文章
 
-I believe in clean, minimal design and fast performance. This blog is designed to be a pleasure to read — no distractions, no clutter, just great content.
+我追求简洁、极简的设计和快速的加载体验。这个博客的设计理念就是：没有干扰，没有杂乱，只有好内容。
 
-## Let's Connect
+## 保持联系
 
-I'd love to hear from you. Feel free to reach out through any of the social links in the footer, or drop me an email. Whether you have a question, suggestion, or just want to say hi — I'm always happy to connect with fellow developers.
+欢迎通过页脚的社交链接找到我，或者直接发邮件。无论是提问题、给建议还是随便聊聊，我都很乐意和各位开发者交流。
 
-Stay tuned for more posts coming soon!
+敬请期待更多文章！

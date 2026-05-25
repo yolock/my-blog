@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: { default: "My Blog", template: "%s | My Blog" },
-  description: "Thoughts on software, design, and life.",
+  title: { default: "yolo", template: "%s | yolo" },
+  description: "关于代码、设计和生活的思考。",
 };
 
 export default function RootLayout({
@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="zh-CN"
       className={`${geistSans.variable} ${geistMono.variable}`}
       suppressHydrationWarning
     >

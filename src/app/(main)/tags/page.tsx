@@ -3,8 +3,8 @@ import Link from "next/link";
 import { getAllTags } from "@/lib/posts";
 
 export const metadata: Metadata = {
-  title: "Tags",
-  description: "Browse posts by topic.",
+  title: "标签",
+  description: "按主题浏览文章。",
 };
 
 export const dynamic = "force-static";
@@ -16,9 +16,9 @@ export default function TagsPage() {
     return (
       <div className="mx-auto max-w-5xl px-4 sm:px-6 py-16 sm:py-20 text-center">
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-foreground">
-          Tags
+          标签
         </h1>
-        <p className="text-muted-foreground">No tags yet.</p>
+        <p className="text-muted-foreground">暂无标签。</p>
       </div>
     );
   }
@@ -29,10 +29,10 @@ export default function TagsPage() {
     <div className="mx-auto max-w-5xl px-4 sm:px-6 py-16 sm:py-20">
       <div className="mb-10">
         <h1 className="text-3xl font-bold tracking-tight text-foreground">
-          Tags
+          标签
         </h1>
         <p className="mt-2 text-muted-foreground">
-          {tags.length} {tags.length === 1 ? "topic" : "topics"} to explore
+          共 {tags.length} 个话题
         </p>
       </div>
 
